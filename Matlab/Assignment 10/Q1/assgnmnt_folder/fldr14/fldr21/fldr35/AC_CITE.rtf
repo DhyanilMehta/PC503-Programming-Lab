@@ -1,0 +1,134 @@
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red0\green0\blue255;}
+{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sa200\sl276\slmult1\lang9\f0\fs22\par
+\par
+1. \b EDGE DETECTION TECHNIQUES\b0\par
+  NMS was first employed in edge detection techniques. NMS is used to perform edge thining which remove spurious responses \par
+      reference -   A. Rosenfeld and M. Thurston. Edge and curve detection for visual scene analysis. IEEE Transactions on computers, 100(5):562\endash 569, 1971.\par
+\par
+         \b other reference\b0  -: \par
+                    reference - C. L. Zitnick and P. Dollar. Edge boxes: Locating object proposals from edges. In European Conference on Computer Vision, pages 391\endash 405. Springer, 2014\par
+                     reference - J. Canny. A computational approach to edge detection. IEEE Transactions on pattern analysis and machine intelligence,(6):679\endash 698, 1986\par
+\par
+2. \b FACE DETECTION\b0  \par
+      NMS has been applied to face detection in which it is performed by simple fashion. The set of detections are first partitioned into disjoint subsets. Two detections are in the same subset if their bounding regions overlap. Each partition yields a Single final detection. The corners of the final bounding region are the average of the corners of all detections in the set\par
+\par
+reference - P. Viola and M. Jones. Rapid object detection using a boosted cascade of simple features. In Computer Vision and Pattern Recognition, 2001. CVPR 2001. Proceedings of the 2001 IEEE Computer Society Conference on, volume 1, pages I\endash I IEEE, 2001\par
+\par
+3. \b FEATURE POINT DETECTION\b0  \par
+     NMS has been applied to feature point detection by applying local thresholding to obtain unique feature point detection.\par
+\par
+          reference - C. Harris and M. Stephens. A combined corner and edge detector. In Alvey vision conference, volume 15, pages 10-5244. Citeseer, 1988\par
+      \par
+     \b other references for feature point detection\b0  -:\par
+\par
+     reference - D. G. Lowe. Distinctive image features from scaleinvariant keypoints. International journal of computer vision, 60(2):91\endash 110, 2004.\par
+      reference -  K. Mikolajczyk and C. Schmid. Scale & affine invariant interest point detectors. International journal of computer vision, 60(1):63\endash 86, 2004\par
+\par
+ 4.\b GREEDY NMS \b0 -:\par
+   \tab Dalal and Triggs introduced the GreedyNMS algorithm that suppresses nearby detection candidates w.r.t. a high-scoring candidate based on an overlap threshold. Since then, Greedy-NMS has been the de-facto standard NMS algorithm for object-detection pipelines\par
+\par
+   reference - Dalal, N., Triggs, B.: Histograms of oriented gradients for human detection. 2005\par
+IEEE Computer Society Conference on Computer Vision and Pattern Recognition\par
+(CVPR\rquote 05) 1, 886\endash 893 vol. 1 (2005) \par
+\par
+\par
+\b\fs28 (5 to 13) are all the accuracy improvements over Greedy NMS . Their focus is not on improving the speed of NMS\par
+\b0\fs22\par
+\par
+\b 5.SOFT NMS \b0 -: \par
+\par
+     Soft-NMS analyzed the behaviour of NMS for strongly overlapping objects and proposed to only decay the score of proposals instead of completely removing them, which results in improvements of 1-2% in mAP across different datasets\par
+\par
+    reference -\tab Bodla, N., Singh, B., Chellappa, R., Davis, L.S.: Soft-nms \endash  improving object detection with one line of code. In: 2017 IEEE International Conference on Computer Vision (ICCV). pp. 5562\endash 5570. IEEE (2017)\par
+\par
+\b 6. smoother soft NMS\b0  -:\par
+\par
+     Soft-NMS is an effective approach to improve the average precision while object overlap is a common phenomenon in the detection of dangerous goods. Further below paper improve this method on account of the difference of aspect ratios and areas between two bounding boxes , below paper call this method with smoothing coefficient based on RoR (ratio of aspect ratio) and RoA (ratio of area) Smoother Soft-NMS.\par
+  \par
+        reference-  Lin C., Bao X., Zhou X. (2019) Smoother Soft-NMS for Overlapping Object Detection in X-Ray Images. In: Cui Z., Pan J., Zhang S., Xiao L., Yang J. (eds) Intelligence Science and Big Data Engineering. Visual Data Engineering. IScIDE 2019. Lecture Notes in Computer Science, vol 11935. Springer, Cham. {\field{\*\fldinst{HYPERLINK "https://doi.org/10.1007/978-3-030-36189-1_9"}}{\fldrslt{\ul\cf1 https://doi.org/10.1007/978-3-030-36189-1_9}}}\f0\fs22\par
+\par
+\b 7.  fItness NMS\b0  -: \par
+            fitness NMS uses IOU-weighted average score .Following paper significantly improves MAP at high localization accuracies without a loss in evaluation rate.\par
+\par
+   reference - Tychsen-Smith, L., Petersson, L.: Improving object localization with fitness nms and bounded iou loss. 2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition pp. 6877\endash 6885 (2017)   \par
+\par
+\par
+\b 8.Tyrolean Network \b0 -:\par
+         Tyrolean network (Tnet) mines the patterns in the score map values and bounding box arrangements to surpass the performance of Greedy NMS.It offers better recall and precision than Greedy NMS.\par
+ REFERENCE -:\par
+                    Hosang, J.H., Benenson, R., Schiele, B.: A convnet for non-maximum suppression.CoRR abs/1511.06437 (2015)\par
+\par
+\b 9. Relation Net\b0  -:\par
+     \par
+       It processes a set of objects simultaneously through interaction  between their appearance feature and geometry, thus allowing modeling of their relation. It is shown effective on improving object recognition and duplicate removal steps in the modern object detection pipeline . It computes relation features for detetection based upon image appearance.\par
+\par
+ REFERENCE -: \par
+                  Hu, H., Gu, J., Zhang, Z., Dai, J., Wei, Y.: Relation networks for object detection.CoRR abs/1711.11575 (2017)       \par
+\par
+\par
+\b 10 Iou Net\b0  -:\par
+   \par
+        This Paper uses IoU-Net for learning to predict the IoU between each detected bounding box and the matched ground-truth.The network acquires this confidence of localization, which improves the NMS procedure by preserving accurately localized bounding boxes.Furthermore, an optimization-based bounding box refinement method is proposed, where the predicted IoU is formulated as the objective.\par
+\par
+\par
+        REFERENCE -Jiang, B., Luo, R., Mao, J., Xiao, T., Jiang, Y.: Acquisition of localization confidence for accurate object detection. CoRR abs/1807.11590 (2018) \par
+\par
+\b 11 Uncertainty NMS \b0 -:\par
+\par
+           In this paper they have proposed a novel bounding box regression loss for learning bounding box transformation and localization variance  together. The learned localization variance allows to merge neighboring bounding boxes during non-maximum suppression (NMS), which further improves the localization performance     \par
+ \par
+ \par
+      REFERENCE -:   Yihui, H., Chenchen, Z., Jianren, W., Marios, S., Xiangyu, Z.: Bounding box regression with uncertainty for accurate object detection. In: CVPR. IEEE (2019) \par
+\par
+\b 12 Learning NMS \b0 -:\par
+          They have proposed a new network architecture designed to perform NMS, using only boxes and their score.Their network is trained end-to-end to learn to generate exactly one high scoring detection per object . In this work they have opened the door for training detectors that no longer need a non-maximum suppression (NMS) post-processing step.\par
+REFERENCE -: Hosang, J., Benenson, R., Schiele, B.: Learning non-maximum suppression. In:Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition. pp. 4507\endash 4515 (2017)\par
+\b 13 Non-Maximum Suppression for object detection by passing messages between the windows\par
+\b0    In this paper they  presented a novel clustering-based NMS algorithm based on Affinity Propagation. they showed that it successfully tackles shortcomings of Greedy NMS for object class and generic object detection.Specifically they have  shown that their  method \endash  whose parameters can be learned automatically depending on the application \endash  yields better fitting boundingboxes, reduces false positives, handles close-by objects better and is better able to predict the number of objects in an image, all at a competitive precision compared to Greedy NMS. Given that APC tries to find a global solution to the NMS problem it is however computationally more complex and still relatively slow taking approximately 1s to cluster 250 bounding-boxes. \b\par
+\tab\par
+\b0 Reference -:\par
+  Rothe R., Guillaumin M., Van Gool L. (2015) Non-maximum Suppression for Object Detection by Passing Messages Between Windows. In: Cremers D., Reid I., Saito H., Yang MH. (eds) Computer Vision -- ACCV 2014. ACCV 2014. Lecture Notes in Computer Science, vol 9003. Springer, Cham. {\field{\*\fldinst{HYPERLINK "https://doi.org/10.1007/978-3-319-16865-4_19"}}{\fldrslt{\ul\cf1 https://doi.org/10.1007/978-3-319-16865-4_19}}}\f0\fs22\par
+\par
+\par
+\par
+\b\fs28 // PAPERS FOCUSING UPON IMPROVEMENT OF SPEED IN NMS\b0\fs22\par
+\par
+\par
+\b 14 MaxPool NMS \b0 -:\par
+   .    In this paper they have introduce MaxpoolNMS, a parallelizable alternative to the NMS algorithm, which is based on max-pooling classification score maps. By employing a novel multi-scale multi-channel maxpooling strategy their method is 20\'d7 faster than GreedyNMS while simultaneously achieves comparable accuracy, when quantified across various benchmarking datasets, i.e., MS COCO, KITTI and PASCAL VOC. Furthermore, their method is better suited for hardware-based acceleration than GreedyNMS.\par
+       It  exploits spatial max-pooling among nearby proposals for NMS which results in impressive speed-up at the cost of negligible degradation in performance.\par
+ REFERENCE -:\par
+             Cai, L., Zhao, B., Wang, Z., Lin, J., Foo, C.S., Aly, M.M.S., Chandrasekhar, V.:Maxpoolnms: Getting rid of nms bottlenecks in two-stage object detectors. In CVPR (2019)\par
+\b\par
+15 YOLOACT \b0 -:\par
+                To fix the sequential nature of traditional NMS, IN This paper they have introduced Fast NMS, a version of NMS where every instance can be decided to be kept or discarded in parallel. To do this, they have simply allowed already-removed detections to suppress other detections, which is not possible in traditional NMS. This relaxation allows them to implement Fast NMS entirely in standard GPU-accelerated matrix operations but YOLOACT is still not sufficient to catch up with the latency reduction in neural networks due to better architectures and faster GPUs\par
+ REFERENCE -:\par
+           Bolya, D., Zhou, C., Xiao, F., Lee, Y.J.: Yolact: Real-time instance segmentation.\par
+           ArXiv abs/1904.02689 (2019)\par
+\par
+\b 16 Accelerating Non maxmimum suppresion using Spatially Aware Points\b0\par
+\par
+  \tab In this paper they have  exploited the existing spatial structural priors in the anchor-space to achieve similar speed-ups for NMS with no accuracy drop. ASAP-NMS inherently reduces the total number of comparisons in NMS to reduce the complexity of\par
+the operation. It is a fundamentally different way of thinking how NMS can be performed when priors about the anchor lattice are available\par
+  It improves the latency of the NMS step from 13.6ms to 1.2 ms on a CPU without sacrificing the accuracy of a state-of-the-art two-stage detector on COCO and VOC datasets.Importantly, ASAPNMS is agnostic to image resolution and can be used as a simple drop-in module during inference. Using ASAP-NMS at run-time only, we obtainan mAP of 44.2%@25Hz on the COCO dataset with a V100 GPU\par
+\par
+REFERENCE -:\par
+\par
+   {\field{\*\fldinst{HYPERLINK "https://arxiv.org/abs/2007.09785v2"}}{\fldrslt{\ul\cf1 https://arxiv.org/abs/2007.09785v2}}}\f0\fs22\par
+\par
+\b 17 Work efficient  PARALLEL Non-Maximum Suppression Kernels\par
+\par
+\tab\b0 In this paper, they  have presented a novel highly scalable parallel NMS algorithm that is designed from scratch to handle workloads featuring thousands of simultaneous detections per frame. The proposed work-efficient NMS algorithm relies on a Boolean matrix, which is constructed element wise in parallel, and completes the cluster of detections by means of parallel reductions. Additionally, the input set of candidate windows does not require to be pre-sorted before running their method, as the proposed map kernel always selects the representative with the highest score among all detections within the cluster while building the Boolean matrix.\par
+\b\par
+\b0\par
+REFERENCE -:\par
+     David Oro, Carles Fern\'e1ndez, Xavier Martorell, Javier Hernando, Work-Efficient Parallel Non-Maximum Suppression Kernels, The Computer Journal, , bxaa108, {\field{\*\fldinst{HYPERLINK "https://doi.org/10.1093/comjnl/bxaa108"}}{\fldrslt{\ul\cf1 https://doi.org/10.1093/comjnl/bxaa108}}}\f0\fs22\par
+\par
+ \b 18   WORK-EFFICIENT PARALLEL NON-MAXIMUM SUPPRESSION FOR EMBEDDED GPU          ARCHITECTURES\par
+\tab\b0 In this paper, we have presented efficient NMS kernels for embedded GPUs based on the Tegra K1 chip. The obtained results show that the GPU generally beats CPU cores even clocking the GPU at a 50% of its maximum frequency\par
+Reference -:\par
+\tab D. Oro, C. Fernandez, X. Martorell, and J. Hernando, \ldblquote Work-efficient  parallel non-maximum suppression for embedded gpu architectures,\rdblquote  in 2016 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), 2016, pp. 1026\endash 1030.\par
+\b\par
+}
+ 
